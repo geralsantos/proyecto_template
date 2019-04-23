@@ -5,8 +5,8 @@ function siteURL()
         /*$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
         $domainName = $_SERVER['HTTP_HOST'];
         return $protocol.$domainName;*/
-        return "https://".$_SERVER["HTTP_HOST"];
-       //return "http://localhost";
+        //return "http://".$_SERVER["HTTP_HOST"];
+       return "http://localhost";
     }
 define('DS', DIRECTORY_SEPARATOR);
 //UBICACIONES PRIVADAS
@@ -20,8 +20,8 @@ define( "DIR_CARGAS", APP . DS . "cargas" . DS ."equipos_avatar" . DS  );
 
  
 //UBICACIONES PUBLICAS
-define( "BASE", "/" );  
-//define( "BASE", "/portal-liga/" );
+//define( "BASE", "/" );  
+define( "BASE", "/proyecto_template/" );
 
 define( "IMG", BASE . 'img' );
 define( "JS", BASE . 'js' );
@@ -38,9 +38,9 @@ define( "RUTA_IMPRESION", SITE_URL_DIR ."portal/index?id_empresa=2&serie_cor=F00
 define("TIEMPO_OFERTAR_SUBASTA",3);
 //ACCESO A BASE DE DATOS
 define('HOST_BASE_DATOS', 'localhost');
-define('NOMBRE_BASE_DATOS', 'admin_portal-liga4');
-define('USUARIO_BASE_DATOS', 'admin_portalliga');
-define('CLAVE_BASE_DATOS', 'pulpomasters');
+define('NOMBRE_BASE_DATOS', 'proyecto_template');
+define('USUARIO_BASE_DATOS', 'root');
+define('CLAVE_BASE_DATOS', '');
 define ('NUM_PERPAGE',10);
 
 //RUTA POR DEFECTO

@@ -1,6 +1,8 @@
 {
   'use strict';
-  Vue.use(VueRouter);
+  //Vue.http.options.emulateJSON=true; // http client
+  //Vue.use(VueRouter);
+ /* Vue.use(VueRouter);
   Vue.http.options.emulateJSON=true; // http client
   const router = new VueRouter({
     mode: 'hash',
@@ -37,38 +39,21 @@
       { path: '/usuario-perfil', component: usuario_perfil },
       { path: '/ventas', component: ventas },
     ]
-});
+});*/
 
   var appVue = new Vue({
     el:'#vue_app', /* container vue */
-    router,
+    //router,
     data: () => ({
-      menuVisible: false,
-      expandSingle: false,
-      selectedDate:new Date('2018/03/26'),
-      currentView:((window.location.hash.substr(1)=="_=_"?'portada-index':window.location.hash.substr(1)) || 'portada-index'),
-      htmlrender:'',
-      title:'',
-      nombre:'',
-      contrasena:'',
-      repita_contrasena:'',
-      email:'',
-      repita_email:'',
-      rowsmodulos:[],
-      culqi:'registro',
+     
     }),
     created:function(){
     },mounted:function(){
-      this.modulos_sidenav();
     },
     watch:{
-      currentView:function(val){
-      }
+     
     },
     methods: {
-      registro_login:function(){
-        alert("dawd")
-      },
       modulos_sidenav:function(){
         console.log("menu-rincipal-app-js");
         this.$http.post('list_modulos?view',{}).then(function(response){

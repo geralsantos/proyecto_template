@@ -1,18 +1,27 @@
 {
   'use strict';
-  Vue.use(VueRouter);
-  Vue.http.options.emulateJSON=true; // http client
-  const router = new VueRouter({
+  //Vue.use(VueRouter);
+  //Vue.http.options.emulateJSON=true; // http client
+  /*const router = new VueRouter({
     mode: 'hash',
     routes: [
       { path: '/', component: null }
     ]
-});
+});*/
   var appLogin = new Vue({
     el:'#vue_app_login', /* container vue */
     name:'Reveal',
-    router,
+   // router,
     data: () => ({
+      user: {
+        // email: 'admin@example.com',
+        // password: 'admin',
+        // name: 'John Doe',
+      },
+      options: {
+        isLoggingIn: true,
+        shouldStayLoggedIn: true,
+      },
       currentView:'',
       usuario:'',
       contrasena:'',
@@ -25,9 +34,8 @@
     }),
     created:function(){
     },mounted:function(){
-      //this.modulos_sidenav();
-      appVue.culqi = $('#culqi').attr("data-id");
-      appVue.autopenCulqi();
+      //appVue.culqi = $('#culqi').attr("data-id");
+      //appVue.autopenCulqi();
     },
     methods: {
       submitForm(){
