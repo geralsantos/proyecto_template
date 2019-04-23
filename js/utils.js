@@ -1,6 +1,6 @@
 {
   'use strict';
-  moment().locale('es');
+  //moment().locale('es');
   var download = function(filename, text) {
     var element = document.createElement('a');
     element.setAttribute('href', 'data:application/xml;charset=utf-8,' + encodeURIComponent(text));
@@ -106,7 +106,7 @@
           appVue.changeview(type);
         }
       }
-      $('.metismenu').click(function(){
+    /*  $('.metismenu').click(function(){
         if ($('.metismenu .has-arrow:hover').attr("aria-expanded")=="true") {
           $('.metismenu .has-arrow:hover').attr("aria-expanded",false);
           $('.metismenu li:hover').children('.submenu-angle').css("display","none");
@@ -125,7 +125,7 @@
         }else{
           $('.mean-nav #menu-mobile.mobile-menu-nav').css('display','none')
         }
-      })
+      })*/
 
   })
 
@@ -156,10 +156,10 @@
       alert(Culqi.error.user_message);
     }
   }
-    moment.updateLocale('es', {
+  /*  moment.updateLocale('es', {
         months : [
             "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio","Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre"
         ]
-    });
+    });*/
 
 }

@@ -1,59 +1,48 @@
 {
   'use strict';
   //Vue.http.options.emulateJSON=true; // http client
-  //Vue.use(VueRouter);
- /* Vue.use(VueRouter);
-  Vue.http.options.emulateJSON=true; // http client
+  Vue.use(VueRouter);
+  //Vue.http.options.emulateJSON=true; // http client
   const router = new VueRouter({
     mode: 'hash',
     routes: [
-      { path: '/balance', component: balance },
-      { path: '/compras-otro-equipo', component: compras_otro_equipo },
-      { path: '/compras', component: compras },
-      { path: '/copa-configuracion', component: copa_configuracion },
-      { path: '/copas-lista', component: copas_lista },
-      { path: '/copa-resultados', component: copa_resultados },
-      { path: '/equipos-administrar', component: equipos_administrar },
-      { path: '/equipos-configuracion', component: equipos_configuracion },
-      { path: '/equipos-estadisticas', component: equipos_estadisticas },
-      { path: '/equipos-lista', component: equipos_lista },
-      { path: '/equipos-plantilla', component: equipos_plantilla },
-      { path: '/kickoff-registro', component: kickoff_registro },
-      { path: '/kickoff-sorteo', component: kickoff_sorteo },
-      { path: '/liga-administrar', component: liga_administrar },
-      { path: '/liga-crear', component: liga_crear },
-      { path: '/liga-historial', component: liga_historial },
-      { path: '/liga-partidos', component: liga_partidos },
-      { path: '/liga-plantilla-otros-equipos', component: liga_plantilla_otros_equipos },
-      { path: '/liga-resultados', component: liga_resultados },
-      { path: '/liga-tabla-clasificacion', component: liga_tabla_clasificacion },
-      { path: '/liga-unir', component: liga_unir },
-      { path: '/ligas-lista', component: ligas_lista },
-      { path: '/lista-subasta', component: lista_subasta },
-      { path: '/negociaciones', component: negociaciones },
       { path: '/portada-index', component: portada_index },
-      { path: '/seleccionar-plantilla', component: seleccionar_plantilla },
-      { path: '/solicitudes', component: solicitudes },
-      { path: '/subasta', component: subasta },
-      { path: '/subastas-ligas', component: subastas_ligas },
-      { path: '/usuario-perfil', component: usuario_perfil },
-      { path: '/ventas', component: ventas },
     ]
-});*/
+});
 
   var appVue = new Vue({
     el:'#vue_app', /* container vue */
-    //router,
+    router,
     data: () => ({
-     
+      title_modulo:null,
+      sidenavopen:"true",
+      drawer: true,
+        mini: true,
+        right: null,
+        rowsmodulos:'',
+        geralrender:false,
     }),
     created:function(){
+    //  this.listar_menu();
+    var self = this;
+      setTimeout(() => {
+        self.geralrender=true;
+        console.log("2w")
+      }, 3000);
     },mounted:function(){
     },
     watch:{
      
     },
     methods: {
+      listar_menu(){
+        console.log("menu-rincipal-portada-index");
+        axios.get('list_modulos?view').then(function(response){
+            console.log(response.data)
+            this.rowsmodulos=response.data;
+          
+        });
+    },
       modulos_sidenav:function(){
         console.log("menu-rincipal-app-js");
         this.$http.post('list_modulos?view',{}).then(function(response){
@@ -201,6 +190,6 @@
         }
       }
     }
-  });
+  }).$mount('#vue_app');
 
 }

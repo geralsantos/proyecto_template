@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>PULPO MASTERS</title>
+    <title><?php echo NOMBRE_PAGINA?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -32,3 +32,64 @@
 
 <body>
     <div class="" id="vue_app">
+    <v-app>
+    <v-toolbar color="white" grey>
+          <v-toolbar-side-icon @click.stop="mini = !mini" style="margin-left:66px !important;"></v-toolbar-side-icon>
+
+          <v-toolbar-title>Nombre del Colegio</v-toolbar-title>
+
+          <v-spacer></v-spacer>
+
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
+         
+        <template>
+        <v-navigation-drawer  v-model="drawer" :mini-variant.sync="mini" class="navigation-drawer-manual" hide-overlay stateless dark absolute temporary
+            value="true" style="position: fixed;">
+            <v-toolbar flat class="transparent">
+                <v-list class="pa-0">
+                    <v-list-tile avatar>
+                        <v-list-tile-avatar>
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg">
+                        </v-list-tile-avatar>
+
+                        <v-list-tile-content>
+                            <v-list-tile-title>John Leider</v-list-tile-title>
+                        </v-list-tile-content>
+
+                        <v-list-tile-action>
+                            <v-btn icon @click.stop="mini = !mini">
+                                <v-icon style="margin-top: -8px;">chevron_left</v-icon>
+                            </v-btn>
+                        </v-list-tile-action>
+                    </v-list-tile>
+                </v-list>
+            </v-toolbar>
+            <v-list id="menu1" >
+            <rowsmodulos v-if="geralrender"></rowsmodulos>
+                <v-list-tile  >
+                    <v-list-tile-action>
+                        <v-icon>power_settings_new</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>Cerrar sesión</v-list-tile-title>
+                </v-list-tile>
+                <!--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>-->
+            </v-list>
+        </v-navigation-drawer>
+</template>
+          <div class="main-body" v-bind:class="{'sidenav-close':!sidenavopen}">
+            <!--@yield('contenido')-->
+            <div class="row">
+              <div class="col s12 m12 l12 xl12">
+                <router-view></router-view> 
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+      </v-app>

@@ -14,8 +14,7 @@ var portada_index = {
     created:function(){
     },
     mounted:function(){
-      this.cargar_datos_usuario();
-      this.listar_menu();
+     // this.cargar_datos_usuario();
 
     },
     methods:{
@@ -156,16 +155,6 @@ var portada_index = {
 
                     ]
                 }]
-            });
-        },
-        listar_menu(){
-            jQuery("#menu1").empty();
-            jQuery("#breadcome-area-cabecera").empty();
-            console.log("menu-rincipal-portada-index");
-            this.$http.post('list_modulos?view',{}).then(function(response){
-                this.rowsmodulos=response.body.menu;
-                document.getElementById('menu1').innerHTML=this.rowsmodulos;
-                document.getElementById('breadcome-area-cabecera').innerHTML=response.body.cabecera;
             });
         },
         openCulqi(){
