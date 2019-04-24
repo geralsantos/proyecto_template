@@ -67,9 +67,52 @@
                     </v-list-tile>
                 </v-list>
             </v-toolbar>
-            <v-list id="menu1">
-              <rowsmodulos></rowsmodulos>
-                <v-list-tile>
+            <v-list>
+            <div v-for="(row,index) in rowsmodulos" :href="'#'+row.url_module">
+            
+              <v-list-group v-if="row.children" :prepend-icon="row.icon_module" >
+                <template v-slot:activator>
+                  <v-list-tile>
+                    <v-list-tile-title>{{row.name_module}}</v-list-tile-title>
+                  </v-list-tile>
+                </template> 
+
+                <div v-for="(row,index) in row.children">
+                  <v-list-group v-if="row.children" :prepend-icon="row.icon_module" >
+                    <template v-slot:activator>
+                      <v-list-tile>
+                        <v-list-tile-title>{{row.name_module}}</v-list-tile-title>
+                      </v-list-tile>
+                    </template> 
+                    <v-list-tile v-if="row.children==null" :href="'#'+row.url_module">
+                      <v-list-tile-action>
+                        <v-icon>{{row.icon_module}}</v-icon>
+                      </v-list-tile-action>
+                      <v-list-tile-title>{{row.name_module}}</v-list-tile-title>
+                    </v-list-tile> 
+                  </v-list-group>
+
+                  <v-list-tile v-if="row.children==null" :href="'#'+row.url_module">
+                    <v-list-tile-action>
+                      <v-icon>{{row.icon_module}}</v-icon>
+                    </v-list-tile-action>
+                    <v-list-tile-title>{{row.name_module}}</v-list-tile-title>
+                  </v-list-tile>
+
+                </div>
+
+              </v-list-group>
+
+              <v-list-tile v-if="row.children==null" :href="'#'+row.url_module">
+                <v-list-tile-action>
+                  <v-icon>{{row.icon_module}}</v-icon>
+                </v-list-tile-action>
+                <v-list-tile-title>{{row.name_module}}</v-list-tile-title>
+              </v-list-tile>
+              
+            </div>
+            
+                <v-list-tile href="<?php $this->url("cerrar", "acceso"); ?>">
                     <v-list-tile-action>
                         <v-icon>power_settings_new</v-icon>
                     </v-list-tile-action>

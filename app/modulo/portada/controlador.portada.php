@@ -22,8 +22,8 @@ class portada extends App{
       $modulos = "SELECT * FROM lgs_modules WHERE state_module = 1";
       $modulos = $modelo->executeQuery( $modulos );
       $tree = $this->buildTree($modulos);
-      $treeHtml = $this->buildTreeHtml($tree);
-      echo $treeHtml;
+      //$treeHtml = $this->buildTreeHtml($tree);
+      echo json_encode($tree);
         //return $tree;
     }
     public function buildTree($elements, $parentId = 0)
@@ -47,10 +47,7 @@ class portada extends App{
        
         foreach ($elements as $element) {
             $li = $li . (isset($element['children']) ? ('
-            <v-list-group
-            '.($opt=="childs"?' no-action sub-group ':' prepend-icon="'.$element["icon_module"].'" ').'
-            value="true"
-          >
+            <v-list-group '.($opt=="childs"?' no-action sub-group ':' prepend-icon="'.$element["icon_module"].'" ').' value="true" >
             <template v-slot:activator>
               <v-list-tile>
                 <v-list-tile-title>'.$element['name_module'].'</v-list-tile-title>

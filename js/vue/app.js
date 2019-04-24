@@ -9,7 +9,11 @@
       { path: '/portada-index', component: portada_index },
     ]
 });
-
+Vue.component('bar', {
+  name: 'bar',
+  template: '#bar',
+  props: ['test']
+}); 
   var appVue = new Vue({
     el:'#vue_app', /* container vue */
     router,
@@ -19,17 +23,27 @@
       drawer: true,
         mini: true,
         right: null,
-        rowsmodulos:'awdawdawdawdawdawda',
+        rowsmodulos:[],
     }),
     created:function(){
     },mounted:function(){
-
+      this.listar_menu();
     },
     watch:{
      
     },
     methods: {
-      
+      listar_menu(){
+        console.log("menu-rincipal-portada-index");
+        let self = this;
+        axios.get('list_modulos?view').then(function(response){
+            console.log(response.data)
+            self.rowsmodulos=response.data;
+        });
+    },
+      goBar:function() {
+        this.theComponent = 'bar';
+      },
       modulos_sidenav:function(){
         console.log("menu-rincipal-app-js");
         this.$http.post('list_modulos?view',{}).then(function(response){
