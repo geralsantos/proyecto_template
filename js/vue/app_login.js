@@ -1,17 +1,17 @@
 {
   'use strict';
-  //Vue.use(VueRouter);
+  Vue.use(VueRouter);
   //Vue.http.options.emulateJSON=true; // http client
-  /*const router = new VueRouter({
+  const router = new VueRouter({
     mode: 'hash',
     routes: [
       { path: '/', component: null }
     ]
-});*/
+});
   var appLogin = new Vue({
     el:'#vue_app_login', /* container vue */
     name:'Reveal',
-   // router,
+    router,
     data: () => ({
       user: {
         // email: 'admin@example.com',

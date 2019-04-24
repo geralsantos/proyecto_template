@@ -19,30 +19,17 @@
       drawer: true,
         mini: true,
         right: null,
-        rowsmodulos:'',
-        geralrender:false,
+        rowsmodulos:'awdawdawdawdawdawda',
     }),
     created:function(){
-    //  this.listar_menu();
-    var self = this;
-      setTimeout(() => {
-        self.geralrender=true;
-        console.log("2w")
-      }, 3000);
     },mounted:function(){
+
     },
     watch:{
      
     },
     methods: {
-      listar_menu(){
-        console.log("menu-rincipal-portada-index");
-        axios.get('list_modulos?view').then(function(response){
-            console.log(response.data)
-            this.rowsmodulos=response.data;
-          
-        });
-    },
+      
       modulos_sidenav:function(){
         console.log("menu-rincipal-app-js");
         this.$http.post('list_modulos?view',{}).then(function(response){
@@ -190,6 +177,6 @@
         }
       }
     }
-  }).$mount('#vue_app');
+  });
 
 }

@@ -67,9 +67,9 @@
                     </v-list-tile>
                 </v-list>
             </v-toolbar>
-            <v-list id="menu1" >
-            <rowsmodulos v-if="geralrender"></rowsmodulos>
-                <v-list-tile  >
+            <v-list id="menu1">
+              <rowsmodulos></rowsmodulos>
+                <v-list-tile>
                     <v-list-tile-action>
                         <v-icon>power_settings_new</v-icon>
                     </v-list-tile-action>
