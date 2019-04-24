@@ -23,11 +23,7 @@
 <div class="footer-text"> <p>Copyright</p>
   </div>
 </footer>
-<template id="bar">
-              <div>
-                Barxd {{test}}
-              </div>
-            </template>
+
 </body>
 
 </html>
