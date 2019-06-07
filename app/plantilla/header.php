@@ -46,8 +46,8 @@
         </v-toolbar>
          
         <template>
-        <v-navigation-drawer  v-model="drawer" :mini-variant.sync="mini" class="navigation-drawer-manual" hide-overlay stateless dark absolute temporary
-            value="true" style="position: fixed;">
+        <v-hover>
+        <v-navigation-drawer  dark id="mini" v-model="drawer" class="navigation-drawer-manual" stateless overlay :temporary="!mini" slot-scope="{ hover }" :mini-variant="mini && !hover" value="true" style="position: fixed;">
             <v-toolbar flat class="transparent">
                 <v-list class="pa-0">
                     <v-list-tile avatar>
@@ -123,6 +123,7 @@
                 </form>-->
             </v-list>
         </v-navigation-drawer>
+</v-hover>
 </template>
           <div class="main-body" v-bind:class="{'sidenav-close':!sidenavopen}">
             <!--@yield('contenido')-->

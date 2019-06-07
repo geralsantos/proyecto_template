@@ -14,10 +14,12 @@ Vue.component('bar', {
   template: '#bar',
   props: ['test']
 }); 
+
   var appVue = new Vue({
     el:'#vue_app', /* container vue */
     router,
     data: () => ({
+      overlay:false,
       title_modulo:null,
       sidenavopen:"true",
       drawer: true,
@@ -28,6 +30,8 @@ Vue.component('bar', {
     created:function(){
     },mounted:function(){
       this.listar_menu();
+      window.addEventListener('click',this.mini_clickoutside);
+      this.action_modulos_activos();
     },
     watch:{
      
@@ -40,6 +44,25 @@ Vue.component('bar', {
             console.log(response.data)
             self.rowsmodulos=response.data;
         });
+    },
+    mini_clickoutside(e){
+      this.mini = !document.getElementById('mini').contains(e.target);
+    },
+    action_modulos_activos(){
+      var btns = document.querySelectorAll(".theme--dark.v-list .v-list__tile--link");
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+          console.log(this.getAttribute("href"))
+          if (this.getAttribute("href")!="#") {
+            for (var x = 0; x < btns.length; x++) {
+              if (this.getAttribute("href")!=btns[x].getAttribute("href")) {
+                btns[x].classList.remove("active-menu-option");
+              }
+            }
+            this.className += " active-menu-option";
+          }
+        });
+      }
     },
       goBar:function() {
         this.theComponent = 'bar';
